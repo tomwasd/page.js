@@ -572,10 +572,10 @@
     // x-origin
     if (!sameOrigin(el.href)) return;
 
-
-
     // rebuild path
     var path = el.pathname + el.search + (el.hash || '');
+
+    if (path[0] !== '/') path = '/' + path;
 
     // strip leading "/[drive letter]:" on NW.js on Windows
     if (typeof process !== 'undefined' && path.match(/^\/[a-zA-Z]:\//)) {
