@@ -538,6 +538,8 @@
 
   function onclick(e) {
 
+    console.log(e);
+
     if (1 !== which(e)) return;
 
     if (e.metaKey || e.ctrlKey || e.shiftKey) return;
@@ -593,7 +595,8 @@
 
     if (base && orig === path) return;
 
-    e.preventDefault();
+    //e.preventDefault();
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
     page.show(orig);
   }
 
