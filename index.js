@@ -287,6 +287,10 @@
 
     prevContext = ctx;
 
+    if (prev && prev.path === ctx.path) {
+      return;
+    }
+
     function nextExit() {
       var fn = page.exits[j++];
       if (!fn) return nextEnter();
@@ -548,7 +552,7 @@
 
 
     // ensure link
-    var el = e.target || e.srcElement;
+    var el = e.target;
     while (el && 'A' !== el.nodeName) el = el.parentNode;
     if (!el || 'A' !== el.nodeName) return;
 
