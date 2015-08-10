@@ -548,7 +548,7 @@
 
 
     // ensure link
-    var el = e.target;
+    var el = e.target || e.srcElement;
     while (el && 'A' !== el.nodeName) el = el.parentNode;
     if (!el || 'A' !== el.nodeName) return;
 
@@ -595,8 +595,7 @@
 
     if (base && orig === path) return;
 
-    //e.preventDefault();
-    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+    e.preventDefault();
     page.show(orig);
   }
 
